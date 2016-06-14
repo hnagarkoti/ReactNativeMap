@@ -11,21 +11,21 @@ import {
   Text,
   View
 } from 'react-native';
+import { Actions, Scene, Router } from 'react-native-router-flux';
+import Login from './src/components/login';
+import Home from './src/components/home';
+
+const scenes = Actions.create(
+  <Scene key="root">
+    <Scene key="login" component={Login} title="Login Page"/>
+    <Scene key="home" component={Home} title="Home Page"/>
+  </Scene>
+  )
 
 class Track extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Shake or press menu button for dev menu
-        </Text>
-      </View>
+      <Router scenes={scenes} />
     );
   }
 }
