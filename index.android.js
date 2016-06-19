@@ -31,7 +31,6 @@ const scenes = Actions.create(
     <Scene key="login" component={Login} title="Login Page"/>
     <Scene key="home" component={Home} title="Home Page"/>
     <Scene key="friends" component={FriendList} title="Add Contacts"/>
-    <Scene key="GeolocationExample" component={GeolocationExample} title="GeolocationExample" />
   </Scene>
   )
 
