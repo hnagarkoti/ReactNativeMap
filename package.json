@@ -3,11 +3,17 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start"
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "android": "react-native run-android",
+    "clean": "rm -rf android/build android/app/build"
   },
   "dependencies": {
     "react": "^15.1.0",
     "react-native": "^0.27.2",
+    "react-native-android-location": "^1.0.2",
+    "react-native-contacts": "^0.2.6",
+    "react-native-drawer": "^2.2.3",
+    "react-native-material-design": "^0.3.6",
     "react-native-router-flux": "^3.30.0"
   }
 }

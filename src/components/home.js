@@ -1,26 +1,64 @@
-import React, { Component } from 'react';
-import { View, Text, StyleSheet, TouchableHighlight } from 'react-native';
-import { Actions } from 'react-native-router-flux';
+'use strict';
 
-class Home extends Component {
-	render(){
-		return(
-			<View style={styles.mainContainer}>
-				
-				<Text>I am home page</Text>
-				
-			</View>
-			)
-	}
-}
+
+var React = require('react');
+var ReactNative = require('react-native');
+var {
+  StyleSheet,
+  Text,
+  View,
+} = ReactNative;
+
+var Home = React.createClass({
+  watchID: (null: ?number),
+
+  getInitialState: function() {
+    return {
+      initialPosition: 'unknown',
+      lastPosition: 'unknown',
+    };
+  },
+
+  componentDidMount: function() {
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        var initialPosition = JSON.stringify(position);
+        console.log('initialPosition:-- ',initialPosition);
+        this.setState({initialPosition});
+      },
+      (error) => alert(error.message),
+      {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000}
+    );
+    this.watchID = navigator.geolocation.watchPosition((position) => {
+      var lastPosition = JSON.stringify(position);
+      this.setState({lastPosition});
+    });
+  },
+
+  componentWillUnmount: function() {
+    navigator.geolocation.clearWatch(this.watchID);
+  },
+
+  render(){
+    return (
+      <View style={{flex: 1, flexDirection:'column', justifyContent: 'center', alignItems:'center'}}>
+        <Text>
+          <Text style={styles.title}>Initial position: </Text>
+          {this.state.initialPosition}
+        </Text>
+        <Text>
+          <Text style={styles.title}>Current position: </Text>
+          {this.state.lastPosition}
+        </Text>
+      </View>
+    );
+  }
+});
 
 var styles = StyleSheet.create({
-	mainContainer:{
-		flex: 1,
-		justifyContent: 'center',
-		alignItems: 'center',
-		backgroundColor: 'white',
-	}
-})
+  title: {
+    fontWeight: '500',
+  },
+});
 
 module.exports = Home;
