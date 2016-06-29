@@ -25,7 +25,6 @@ import Home from './src/components/home';
 import FriendList from './src/components/Friends';
 import CurrentLocation from './src/components/ViewsAsMarkers';
 
-
 const scenes = Actions.create(
   <Scene key="root">
     <Scene key="home" component={Home} hideNavBar={true}/>
@@ -41,6 +40,5 @@ class Track extends Component {
     );
   }
 }
-
 
 AppRegistry.registerComponent('Track', () => Track);
