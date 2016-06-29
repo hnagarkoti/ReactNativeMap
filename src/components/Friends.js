@@ -3,7 +3,6 @@ import { View, Text, ScrollView, } from 'react-native';
 var Contacts = require('react-native-contacts');
 import { Card } from 'react-native-material-design';
 
-
 class FriendList extends Component {
 
 	constructor(){
@@ -58,9 +57,9 @@ class FriendList extends Component {
 
 	renderLoadingView(){
 		return(
-			<View style={{flex: 1, justifyContent: 'center'}}>
-				<Text>Fetching Contacts...</Text>
-			</View>
+			<View style={{ flex: 1 }}>
+	        	<Text>Fetching... </Text>
+	      	</View>
 			)
 	}
 }

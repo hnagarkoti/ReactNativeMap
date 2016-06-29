@@ -1,6 +1,8 @@
 package com.track;
 
+import com.airbnb.android.react.maps.MapsPackage;
 import com.facebook.react.ReactActivity;
+import com.oblador.vectoricons.VectorIconsPackage;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
 
@@ -8,6 +10,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import com.rt2zz.reactnativecontacts.ReactNativeContacts;
+import com.facebook.soloader.SoLoader;
 
 public class MainActivity extends ReactActivity {
 
@@ -37,7 +40,9 @@ public class MainActivity extends ReactActivity {
     protected List<ReactPackage> getPackages() {
         return Arrays.<ReactPackage>asList(
             new MainReactPackage(),
-            new ReactNativeContacts()
+            new VectorIconsPackage(),
+            new ReactNativeContacts(),
+            new MapsPackage(this)
         );
     }
 }

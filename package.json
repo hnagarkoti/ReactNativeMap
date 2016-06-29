@@ -8,12 +8,14 @@
     "clean": "rm -rf android/build android/app/build"
   },
   "dependencies": {
-    "react": "^15.1.0",
-    "react-native": "^0.27.2",
-    "react-native-android-location": "^1.0.2",
+    "react": "15.1.0",
+    "react-native": "0.27.2",
     "react-native-contacts": "^0.2.6",
-    "react-native-drawer": "^2.2.3",
+    "react-native-android-location": "^1.0.2",
+    "react-native-maps": "^0.6.0",
     "react-native-material-design": "^0.3.6",
-    "react-native-router-flux": "^3.30.0"
+    "react-native-router-flux": "^3.30.0",
+    "react-native-scrollable-tab-view": "^0.5.0",
+    "react-native-vector-icons": "^2.0.3"
   }
 }
